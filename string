@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;   // reads only one word (no spaces)
+
+    int freq[256] = {0};
+
+    for (char ch : s) {
+        freq[ch]++;
+    }
+
+    char maxChar = s[0];
+    int maxCount = 0;
+
+    for (char ch : s) {
+        if (freq[ch] > maxCount) {
+            maxCount = freq[ch];
+            maxChar = ch;
+        }
+    }
+
+    cout << maxChar;
+
+    return 0;
+}
